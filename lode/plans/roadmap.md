@@ -10,6 +10,7 @@ Nothing scheduled — the site is in a stable, feature-complete state.
 
 ```markdown
 ## <Area> — <short goal>
+
 - What: <concrete change>
 - Why: <rationale>
 - Touches: <files/lode files>

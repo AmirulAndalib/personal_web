@@ -13,5 +13,5 @@ Repository of short domain terms used across this project and its Lode.
 - **Icon import** - `unplugin-icons` virtual module import; two equivalent syntaxes exist: `virtual:icons/<set>/<name>` and `~icons/<set>/<name>`.
 - **Helper menu** - Floating "?" button (`HelperButton`) opening a small link menu: service status, support, blog.
 - **nav-button** - Shared Tailwind component class defined in `src/app.css` for the floating navigation buttons (hover scale, zinc colors).
-- **Adapter** - SvelteKit deployment target. `adapter-cloudflare` is active; `adapter-auto` and `adapter-node` are installed as alternatives.
+- **Adapter** - SvelteKit deployment target. `adapter-cloudflare` only; Docker/ghcr publishing was removed.
 - **FOUC script** - Inline `<svelte:head>` script in `ThemeToggle` that applies the dark class before first paint to avoid a light flash.

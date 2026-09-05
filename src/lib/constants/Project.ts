@@ -43,7 +43,8 @@ export const PROJECT: Project[] = [
   },
   {
     title: "Spam Detection API",
-    description: "API for Spam Detection that specifically trained on Telegram messages to detect and prevent spam message.",
+    description:
+      "API for Spam Detection that specifically trained on Telegram messages to detect and prevent spam message.",
     stacks: ["Python", "PostgreSQL"],
     url: "https://github.com/userbotindo/api-docs"
   }

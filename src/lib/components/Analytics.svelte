@@ -15,8 +15,8 @@
   })
 
   $effect(() => {
-    if (env.PUBLIC_GOOGLE_ANALYTICS && typeof gtag !== "undefined") {
-      gtag("config", env.PUBLIC_GOOGLE_ANALYTICS, {
+    if (env.PUBLIC_GOOGLE_ANALYTICS && typeof window.gtag !== "undefined") {
+      window.gtag("config", env.PUBLIC_GOOGLE_ANALYTICS, {
         page_title: document.title,
         page_path: $page.url.pathname
       })

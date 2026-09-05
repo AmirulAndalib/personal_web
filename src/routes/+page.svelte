@@ -6,7 +6,7 @@
 <main
   in:slide
   out:fly
-  class="flex justify-center items-center h-screen first-letter:md:mx-20 mx-10 text-center gap-11"
+  class="flex justify-center items-center h-screen md:mx-20 mx-10 text-center gap-11"
 >
   <div class="flex flex-col gap-6">
     <div in:slide={{ delay: 400 }}>
@@ -23,7 +23,7 @@
         Mr.Miss
       </span>
       <p in:slide={{ delay: 800 }} class="mt-2 text-lg md:text-xl">
-        Software Engineer. 
+        Software Engineer.
         <br />
         Creating bugs and breaking things everyday.
       </p>

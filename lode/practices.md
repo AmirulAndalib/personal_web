@@ -12,11 +12,13 @@ bun run dev        # vite dev server
 bun run build      # production build (Cloudflare adapter)
 bun run preview    # preview the build
 bun run check      # svelte-check typecheck (run after every change)
-bun run lint       # prettier --check . && eslint .
+bun run lint       # prettier --check . && eslint . (flat config: eslint.config.js)
 bun run format     # prettier --write .
 ```
 
 **Invariant**: after any code change, `bun run check` and `bun run lint` must pass.
+
+**TypeScript version pin**: TypeScript stays on the **6.0.x** (JS-based) line. Do **not** bump to TS 7 (the Go-native rewrite) — `svelte-check`, `@sveltejs/kit`, and `typescript-eslint` all cap their peer ranges below it (`^6.0.0` / `<6.1.0`) and the whole toolchain breaks.
 
 ## Svelte conventions
 
@@ -28,8 +30,9 @@ bun run format     # prettier --write .
 ## Styling conventions
 
 - Tailwind utility classes inline in markup; `dark:` variants paired with light styles for every color choice.
-- Dark mode is class-based (`darkMode: "class"` in `tailwind.config.js`); never rely on `prefers-color-scheme` in components — the FOUC script + `ThemeToggle` own that decision (see [ui/theme.md](ui/theme.md)).
-- Dynamic Tailwind classes (e.g. `hoverColor` in `Social.ts`) must be written as complete literal strings so Tailwind's JIT scanner finds them in `./src/**/*.{html,js,svelte,ts}`.
+- Tailwind **v4** (CSS-first) via the `@tailwindcss/vite` plugin; no `tailwind.config.js`/PostCSS. Brand tokens live in `@theme` inside `src/app.css`.
+- Dark mode is class-based; the `dark:` variant is registered with `@custom-variant dark (&:where(.dark, .dark *))` in `src/app.css` — never rely on `prefers-color-scheme` in components (see [ui/theme.md](ui/theme.md)).
+- Dynamic Tailwind classes (e.g. `hoverColor` in `Social.ts`) must be written as complete literal strings so Tailwind v4's automatic source scanning picks them up.
 - Page enter/exit animation uses `svelte/transition` (`slide`, `fly`, `scale`) with staggered delays (300–1300ms) — follow the existing delay ramp when adding sections.
 
 ## Link & SEO conventions
@@ -41,5 +44,5 @@ bun run format     # prettier --write .
 ## Lode discipline
 
 - One topic per file in `lode/`, Mermaid-only diagrams, relative links, <250 lines per file.
-- After any behavior/structure change, update the affected lode file in the same session; the Lode describes *current state*, not history.
+- After any behavior/structure change, update the affected lode file in the same session; the Lode describes _current state_, not history.
 - Session scraps go to `lode/tmp/` (git-ignored); only durable knowledge enters the main lode.

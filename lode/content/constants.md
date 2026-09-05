@@ -16,9 +16,9 @@ export const MAIN_PAGE = ["/", "/about", "/project"]
 interface Project {
   title: string
   description: string
-  stacks: string[]   // free-form labels rendered as pills; NOT validated against STACKS
-  url: string        // live/demo link (required)
-  source?: string    // source-code link; GitHub URLs get displayed as "owner/repo"
+  stacks: string[] // free-form labels rendered as pills; NOT validated against STACKS
+  url: string // live/demo link (required)
+  source?: string // source-code link; GitHub URLs get displayed as "owner/repo"
 }
 ```
 
@@ -36,18 +36,18 @@ export const SOCIAL_LINKS = [
 ]
 ```
 
-- `hoverColor` strings are **literal Tailwind classes** — they must be written in full inside this `.ts` file so Tailwind's content scanner (`./src/**/*.{html,js,svelte,ts}`) generates them. Composing them dynamically (e.g. `` `hover:text-${c}` ``) silently produces no CSS.
+- `hoverColor` strings are **literal Tailwind classes** — they must be written in full inside this `.ts` file so Tailwind v4's automatic source scanning picks them up. Composing them dynamically (e.g. `` `hover:text-${c}` ``) silently produces no CSS.
 - `icon` values are Svelte components from `virtual:icons/<set>/<name>` (or `~icons/...` — both syntaxes work); render with `<it.icon>` in `Social.svelte`.
 
 ## `STACKS` — `Stack.ts`
 
 ```ts
-import Docker from "$lib/assets/icons/docker.svg"   // static SVG asset → URL string
+import Docker from "$lib/assets/icons/docker.svg" // static SVG asset → URL string
 export interface Stack {
   label: string
-  icon: string       // SVG asset URL
-  iconDark?: string  // alternate logo for dark backgrounds (e.g. nextjs-dark.svg)
-  url: string        // tech homepage
+  icon: string // SVG asset URL
+  iconDark?: string // alternate logo for dark backgrounds (e.g. nextjs-dark.svg)
+  url: string // tech homepage
 }
 ```
 

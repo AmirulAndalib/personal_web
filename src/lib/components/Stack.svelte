@@ -18,11 +18,11 @@
 <div class="mx-0 sm:mx-10 my-2">
   <h2 class="mb-3 text-xl font-bold">My Tech Stack</h2>
   <div class="flex justify-center flex-wrap mx-0 md:mx-10">
-    {#each STACKS as it}
+    {#each STACKS as it (it.label)}
       <a
         href={it.url}
         class="text-zinc-600 dark:text-zinc-400 mx-2 w-8 md:w-10 h-8 md:h-10"
-        rel="noopener noreferer"
+        rel="noopener noreferrer"
         target="_blank"
         aria-label={it.label}
         role="button"

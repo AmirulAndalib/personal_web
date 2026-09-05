@@ -4,13 +4,13 @@ Route map of the site and the index-driven navigation contract.
 
 ## Route map
 
-| Route | Source | Role |
-| --- | --- | --- |
-| `/` | `src/routes/+page.svelte` | Hero: name, tagline, `Social`, blog link |
-| `/about` | `src/routes/about/+page.svelte` | Bio + `Stack` grid |
-| `/project` | `src/routes/project/+page.svelte` | `Card` grid from `PROJECT` constant |
-| `/support` | `src/routes/support/+page.svelte` | Off-menu support page |
-| `*` (404) | `src/routes/[...notfound]/+page.svelte` | Catch-all, off-menu |
+| Route      | Source                                  | Role                                     |
+| ---------- | --------------------------------------- | ---------------------------------------- |
+| `/`        | `src/routes/+page.svelte`               | Hero: name, tagline, `Social`, blog link |
+| `/about`   | `src/routes/about/+page.svelte`         | Bio + `Stack` grid                       |
+| `/project` | `src/routes/project/+page.svelte`       | `Card` grid from `PROJECT` constant      |
+| `/support` | `src/routes/support/+page.svelte`       | Off-menu support page                    |
+| `*` (404)  | `src/routes/[...notfound]/+page.svelte` | Catch-all, off-menu                      |
 
 ## Navigation contract
 

@@ -3,11 +3,11 @@
 </script>
 
 <section class="flex justify-evenly mx-10 my-3">
-  {#each SOCIAL_LINKS as it}
+  {#each SOCIAL_LINKS as it (it.label)}
     <a
       href={it.link}
       class={"text-zinc-600 dark:text-zinc-400 mx-2 w-8 md:w-10 h-8 md:h-10 " + it.hoverColor}
-      rel="noopener noreferer nofollow"
+      rel="noopener noreferrer nofollow"
       target="_blank"
       aria-label={it.label}
       role="button"

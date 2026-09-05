@@ -8,7 +8,8 @@ declare global {
     // interface Platform {}
   }
   declare interface Window {
-    dataLayer: any
+    dataLayer: unknown[]
+    gtag: (...args: unknown[]) => void
   }
 }
 

@@ -4,16 +4,12 @@
 
   import UimAngleDoubleLeft from "~icons/uim/angle-double-left"
 
-  let hidden = $state(true)
+  let hidden = $derived($currentSection <= 1 && $currentSection !== -1)
 
   function redirectHome() {
     currentSection.update(() => 0)
     goto("/")
   }
-
-  $effect(() => {
-    hidden = $currentSection <= 1 && $currentSection !== -1
-  })
 </script>
 
 <button

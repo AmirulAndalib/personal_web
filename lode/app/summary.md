@@ -4,9 +4,9 @@ How the SvelteKit app is wired: config, adapters, preprocessing, environment, an
 
 ## Build configuration
 
-`svelte.config.js` uses **`@sveltejs/adapter-cloudflare`** as the active adapter (deployed to Cloudflare). `adapter-auto` and `adapter-node` are installed as ready alternatives — switching adapters is a one-line change plus a rebuild.
+`svelte.config.js` uses **`@sveltejs/adapter-cloudflare`** — Cloudflare is the sole deploy target (Docker/ghcr publishing was removed).
 
-Styles are preprocessed through `vitePreprocess(sveltePreprocess({ postcss: true, defaults: { style: "postcss" } }))`, which is what lets `<style lang="scss">` blocks and Tailwind's PostCSS pipeline coexist.
+Scripts are preprocessed with **`vitePreprocess()`** from `@sveltejs/vite-plugin-svelte`; it delegates TS and `<style lang="scss">`/CSS handling to Vite's pipeline (sass uses its modern compiler by default).
 
 ```mermaid
 graph TD
@@ -25,10 +25,10 @@ graph TD
 
 Public runtime env vars (copy `.env.example` → `.env`):
 
-| Variable | Used by | Effect when empty |
-| --- | --- | --- |
-| `PUBLIC_BASE_URL` | layout OG `og:url` meta | tag renders with empty content |
-| `PUBLIC_GOOGLE_ANALYTICS` | `Analytics.svelte` | gtag script tag and tracking are skipped entirely |
+| Variable                  | Used by                 | Effect when empty                                 |
+| ------------------------- | ----------------------- | ------------------------------------------------- |
+| `PUBLIC_BASE_URL`         | layout OG `og:url` meta | tag renders with empty content                    |
+| `PUBLIC_GOOGLE_ANALYTICS` | `Analytics.svelte`      | gtag script tag and tracking are skipped entirely |
 
 **Invariant**: env vars are always read through `$env/dynamic/public`, never `import.meta.env` or hardcoded values.
 

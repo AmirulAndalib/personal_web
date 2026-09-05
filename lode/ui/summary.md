@@ -4,11 +4,19 @@ Styling stack and shared visual language of the site.
 
 ## Stack
 
-Tailwind CSS 3 (JIT, class-based dark mode) + PostCSS + optional SCSS in components. Global styles live in `src/app.css`; Tailwind tokens extend two brand colors in `tailwind.config.js`:
+Tailwind CSS **v4** (CSS-first, via the `@tailwindcss/vite` plugin in `vite.config.ts`) + optional SCSS in components. There is no `tailwind.config.js` or `postcss.config.js`. Global styles live in `src/app.css`; brand tokens are declared in `@theme`:
 
-```js
-colors: { "primary-light": "#F5F5F5", "primary-dark": "#212121" }
+```css
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary-light: #f5f5f5;
+  --color-primary-dark: #212121;
+}
 ```
+
+These `--color-*` tokens generate `text-primary-light`, `bg-primary-dark`, etc. (used by the layout and helper menu).
 
 ## Global tokens (`src/app.css`)
 

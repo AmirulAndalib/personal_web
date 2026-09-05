@@ -1,6 +1,6 @@
 # Theme (Dark Mode)
 
-Class-based dark mode: Tailwind's `dark:` variants activate when `<html>` has the `dark` class (`darkMode: "class"` in `tailwind.config.js`).
+Class-based dark mode: Tailwind's `dark:` variants activate when `<html>` has the `dark` class. The variant is registered once in `src/app.css` with `@custom-variant dark (&:where(.dark, .dark *))` (Tailwind v4 CSS-first config).
 
 ## Sources of truth
 
